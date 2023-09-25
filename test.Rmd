@@ -1,0 +1,61 @@
+---
+title: "International students"
+output: flexdashboard::flex_dashboard
+---
+
+Page 1 {.storyboard}
+=====================================  
+    
+### Chart 1
+    
+```{r}
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%
+  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+```
+
+*** 
+Comment 1
+   
+### Chart 2
+
+```{r}
+library(d3heatmap)
+d3heatmap(mtcars, scale="column", colors="Blues")
+```   
+ 
+***
+Comment 2
+
+### Chart 3
+    
+```{r}
+```
+
+*** 
+Comment 3
+
+Page 2 {data-orientation=rows}
+=====================================     
+   
+Row {data-height=600}
+-------------------------------------
+
+### Chart 1
+
+```{r}
+```
+
+Row {data-height=400}
+-------------------------------------
+   
+### Chart 2
+
+```{r}
+```   
+    
+### Chart 3
+
+```{r}
+```
