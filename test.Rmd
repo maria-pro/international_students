@@ -1,12 +1,16 @@
 ---
 title: "The international student / migration nexus"
-output: flexdashboard::flex_dashboard
+output: 
+  flexdashboard::flex_dashboard:
+    theme:
+      version: 5
+      bootswatch: spacelab 
 ---
 
 Page 1 {.storyboard}
 =====================================  
     
-### Migration and international education 
+### Migration and international education {data-commentary-width=600}
     
 ```{r}
 library(leaflet)
@@ -27,7 +31,7 @@ This is when non-citizens are in Australia for extended periods of time without 
 The number of temporary migrants in Australia has ballooned, and it is Australia’s international students who have contributed most to this growth.
 
    
-### Graph 1
+### Graph 1 {data-commentary-width=600}
 
 ```{r}
 library(d3heatmap)
@@ -49,7 +53,7 @@ d3heatmap(mtcars, scale="column", colors="Blues")
 *Enrolments in certain courses help highlight this.*
 
 
-### Graph 2
+### Graph 2 {data-commentary-width=800}
     
 ```{r}
 ```
