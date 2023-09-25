@@ -7,16 +7,67 @@ output:
       bootswatch: spacelab 
 ---
 
+
+```{r library}
+library(tidyverse)
+library(crosstalk)
+library(plotly)
+```
+
+```{r data}
+
+graph1<-readxl::read_excel("docs/Graph 1 Temporary visa long.xlsx", sheet=1)
+
+graph1<-graph1|>pivot_longer(
+  !Daate,
+  names_to="visa",
+  values_to="value"
+)
+
+graph2<-readxl::read_excel("docs/Graph 2 allbroadfield_June_final.xlsx", sheet=1)|>
+  janitor::clean_names()
+
+
+graph2<-graph2|>pivot_longer(
+  !c(1:2),
+  names_to="years",
+  values_to="value"
+)
+  
+graph1_sh<-SharedData$new(graph1)
+
+graph1_sh<-SharedData$new(graph1)
+
+graph2_sh<-SharedData$new(graph2)
+
+
+fig<-graph1|>filter(visa=="Student")|>
+  plot_ly(
+    x=~Daate,
+    y=~value,
+    type="scatter",
+    mode="lines",
+    linetype = ~visa
+  )|>
+  layout(
+    title="Visa categories across time",
+    xaxis = list(title = "Time"),
+    yaxis = list (title = "Visa categories"))
+
+
+```
+
+
 Page 1 {.storyboard}
 =====================================  
     
-### Migration and international education {data-commentary-width=600}
+### Migration and international education {data-commentary-width=800}
     
 ```{r}
 library(leaflet)
 leaflet() %>%
   addTiles() %>%
-  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+  addMarkers(lng=144.9585046693149, lat=-37.811568730599504, popup="Victoria University") 
 ```
 
 *** 
@@ -31,11 +82,23 @@ This is when non-citizens are in Australia for extended periods of time without 
 The number of temporary migrants in Australia has ballooned, and it is Australia’s international students who have contributed most to this growth.
 
    
-### Graph 1 {data-commentary-width=600}
+### Graph 1 {data-commentary-width=800}
 
 ```{r}
-library(d3heatmap)
-d3heatmap(mtcars, scale="column", colors="Blues")
+filter_select("visa_type", "Visa type", graph1_sh, ~visa)
+
+plot_ly(
+  graph1_sh,
+    x=~Daate,
+    y=~value,
+    type="scatter",
+    mode="lines",
+    linetype = ~visa
+  )|>
+  layout(
+    title="Visa categories across time",
+    xaxis = list(title = "Time"),
+    yaxis = list (title = "Visa categories"))
 ```   
  
 ***
@@ -56,6 +119,24 @@ d3heatmap(mtcars, scale="column", colors="Blues")
 ### Graph 2 {data-commentary-width=800}
     
 ```{r}
+
+filter_checkbox("sector", "Sector", graph2_sh, ~sector, inline = TRUE)
+
+filter_select("detailed_field_of_education", "Field of educaion", graph2_sh, ~detailed_field_of_education)
+
+plot_ly(
+  graph2_sh,
+    x=~years,
+    y=~value,
+    type="scatter",
+    mode="lines",
+    linetype = ~detailed_field_of_education
+  )|>
+  layout(
+    title="Enrolment numbers across time",
+    xaxis = list(title = "Time"),
+    yaxis = list (title = "Enrolments"))
+
 ```
 
 *** 
