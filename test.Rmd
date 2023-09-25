@@ -1,12 +1,12 @@
 ---
-title: "International students"
+title: "The international student / migration nexus"
 output: flexdashboard::flex_dashboard
 ---
 
 Page 1 {.storyboard}
 =====================================  
     
-### Chart 1
+### Migration and international education 
     
 ```{r}
 library(leaflet)
@@ -16,9 +16,18 @@ leaflet() %>%
 ```
 
 *** 
-Comment 1
+Migration and international education are intertwined. Tertiary education has always been associated with people moving to study, such as leaving home to attend university.
+
+Because international education usually involves movement across borders, there are increasingly complex links with migration policy. It is important to understand how migration and international education intersect to ensure better policy approaches.
+
+A recent government review found that Australia is at risk of creating a class of ‘permanently temporary underclass’.
+
+This is when non-citizens are in Australia for extended periods of time without the protection afforded by being a permanent resident.
+
+The number of temporary migrants in Australia has ballooned, and it is Australia’s international students who have contributed most to this growth.
+
    
-### Chart 2
+### Graph 1
 
 ```{r}
 library(d3heatmap)
@@ -26,22 +35,46 @@ d3heatmap(mtcars, scale="column", colors="Blues")
 ```   
  
 ***
-Comment 2
+- In 2011, there were about 270,000 international students in Australia. This grew steadily until the pandemic hit.
 
-### Chart 3
+- The opening of international borders meant that international students returned – quickly. And on current trends, international students will continue to grow to record levels.
+
+- Enrolled international students are just one group of temporary migrants. Many international students are eligible for post-study work visas of up to six years when they finish their course.
+
+- Current and former international students are now the largest group of temporary migrants living in Australia. This brings lots of benefits. But it is also a program that is uncapped.
+
+
+*The courses that international students choose is closely linked to pathways to permanent migration. In the skilled migration program, applicants must nominate an occupation. Courses aligned to occupations with migration pathways are the most in demand.*
+
+*Enrolments in certain courses help highlight this.*
+
+
+### Graph 2
     
 ```{r}
 ```
 
 *** 
-Comment 3
+- Before 2009, finishing a course on a migration skills list meant students were eligible to apply for permanent migration. Courses like those in hairdressing and cookery – which were on skilled shortage list – boomed.
 
-Page 2 {data-orientation=rows}
+- In 2009, this migration link was ‘de-coupled’. Finishing a course no longer entitled a student to gain permanent residency. Instead, new requirements were needed, such as employment experience or sponsorship. This is called ‘two-step’ permanent migration. The first step means finishing the course, and the second step usually involves finding a job or a sponsor. Occupations like cooks and hairdressers were taken off migration skills lists and enrolments fell.
+
+- But the fall was temporary. Pathways to permanent migration re-emerged and occupations like cooks returned to skilled migration lists in the mid-2010s. Cookery is now the most popular course for international students. While two-step migration made pathways to migration more uncertain, the possibility of permanent residency continues to drive student choice.
+
+- Hairdressing, once as popular as cooks, has not returned to skilled occupation lists and enrolments have remained low. Accountants, once the most popular course have been taken off skill shortage lists, and enrolments have started to drop.
+
+- Occupations such as auto mechanics and child carers have been added to lists in recent years. Enrolments in these courses are rising rapidly.
+
+- Not all enrolments are driven by permanent migration prospects. But students in all courses still receive much greater rights to stay and work than they otherwise would if they had a tourist visa. It is part of the reason why the number of temporary migration students has swollen so much.
+
+*The migration / international student nexus is complicated. But it is important to understand and to manage. It means that it can be difficult to disentangle migration decisions from education decisions.*
+
+*It also means that ensuring the health of Australia’s international education and migration system means considering the two together.*
+
+
+Page 2 {.storyboard}
 =====================================     
    
-Row {data-height=600}
--------------------------------------
-
 ### Chart 1
 
 ```{r}
